@@ -1,26 +1,44 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './App.scss';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import IntroCard from './components/intro-card'
+
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      
+    }
+  }
+
+  onChange = (e) => {
+    this.setState({
+      inputValue: e.target.value,
+    });
+  }
+
+  submitBudget = (e) => {
+    e.preventDefault();
+
+    this.setState({
+      budget: this.state.inputValue,
+      inputValue: ''
+    });
+  }
+
+  render() {
+    console.log(this.state.budget);
+    return (
+      <div className="App">
+        {
+          this.state.budget !== undefined 
+          ? <h1>We have a budget!</h1> 
+          : <IntroCard
+            submitBudget={this.submitBudget} />
+        }
+      </div>
+    );
+  }
 }
 
 export default App;
