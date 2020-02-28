@@ -11,6 +11,7 @@ const StyledCard = styled.div `
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  transition: opacity 500ms ease;
 
   h1 {
     margin-bottom: 2rem;
