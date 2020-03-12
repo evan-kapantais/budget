@@ -3,13 +3,14 @@ import './App.scss';
 
 import IntroCard from './components/intro-card'
 import BudgetCard from './components/budget-card';
+import Form from './components/form'
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       inputValue: null,
-      budget: null,
+      budget: 802.54,
       expenses: {}
     }
   }
@@ -46,7 +47,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {
+        {/* {
           this.state.budget !== null 
           ? <BudgetCard
             budget={this.state.budget}
@@ -54,7 +55,11 @@ class App extends React.Component {
           : <IntroCard
             onChange={this.onChange}
             submitBudget={this.submitBudget} />
-        }
+        } */}
+        <BudgetCard
+        budget={this.state.budget}
+        />
+        <Form />
       </div>
     );
   }
